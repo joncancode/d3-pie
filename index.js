@@ -1,22 +1,22 @@
 const form = document.querySelector('form');
 const name = document.querySelector('#name');
-const cost = document.querySelector('#cost');
+const cost = document.querySelector('#points');
 const error = document.querySelector('#error');
 
 form.addEventListener('submit', e => {
   e.preventDefault();
 
-  if (name.value && cost.value) {
+  if (name.value && points.value) {
     const item = {
       name: name.value,
-      cost: parseInt(cost.value)
+      points: parseInt(points.value)
     };
-    db.collection('expenses')
+    db.collection('knicks')
       .add(item)
       .then(res => {
         error.textContent = '';
         name.value = '';
-        cost.value = '';
+        points.value = '';
       });
   } else {
     error.textContent = 'Please enter values before submitting';
